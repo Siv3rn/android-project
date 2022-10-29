@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/design_default_color_primary_dark"
+
+    android:layout_height="match_parent"
+    tools:context=".Picker">
+
+    <TextView
+        android:id="@+id/check_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="Tanggal Check In"
+
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cari" />
+
+    <TextView
+        android:id="@+id/check_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Check Out"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/DatePicker2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatePicker1"
+        app:layout_constraintVertical_bias="0.468" />
+
+    <TextView
+        android:id="@+id/jumlah_kamar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah Kamar"
+        android:textColor="@color/white"
+
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/kamar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatePicker2"
+        app:layout_constraintVertical_bias="0.41" />
+
+    <TextView
+        android:id="@+id/cari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cari Kamar Hotel"
+        android:textColor="@color/white"
+
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/DatePicker1"
+        style="@style/Widget.AppCompat.Spinner"
+        android:layout_width="222dp"
+        android:layout_height="33dp"
+        android:onClick="OpenDatePicker1"
+        android:text="01 Jan 2022"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_in"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <Button
+        android:id="@+id/DatePicker2"
+        style="@style/Widget.AppCompat.Spinner"
+        android:layout_width="222dp"
+        android:layout_height="33dp"
+        android:onClick="OpenDatePicker2"
+
+        android:text="01 Jan 2022"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <Button
+        android:id="@+id/Search"
+        android:layout_width="219dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="23dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        android:textColor="@color/dark_theme3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kamar"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <NumberPicker
+        android:id="@+id/kamar"
+        android:layout_width="84dp"
+        android:layout_height="75dp"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatePicker2"
+        app:layout_constraintVertical_bias="0.339" />
+
+
+</android.support.constraint.ConstraintLayout>

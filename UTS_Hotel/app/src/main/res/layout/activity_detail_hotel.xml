@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_primary_dark"
+
+    tools:context=".DetailHotel">
+
+    <TextView
+        android:id="@+id/deskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi-Hotel"
+        android:textColor="@color/white"
+        android:layout_below="@id/parseImage"/>
+
+    <ImageView
+        android:id="@+id/parseImage"
+        android:layout_width="164dp"
+        android:layout_height="209dp"
+        android:layout_below="@id/data_nama"/>
+
+    <TextView
+        android:id="@+id/fasilitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deskripsi"
+        android:layout_marginTop="16dp"
+        android:text="Fasilitas:"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/harga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fasilitas"
+        android:layout_marginTop="25dp"
+        android:text="Harga:"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/data_fas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deskripsi"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/fasilitas"
+        android:text="TextView"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/data_harga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fasilitas"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@id/harga"
+        android:text="TextView"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/data_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/design_default_color_primary_dark"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DaftarHotel">
+
+    <TextView
+        android:id="@+id/daftar_hotel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Daftar Hotel Yang Tersedia"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/check_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/daftar_hotel"
+        android:layout_marginTop="20dp"
+        android:text="Check In"
+        android:textColor="@color/white"
+
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/check_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/check_in"
+        android:textColor="@color/white"
+
+        android:layout_marginTop="12dp"
+        android:text="Check Out"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/jumlah_kamar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/check_out"
+        android:textColor="@color/white"
+
+        android:layout_marginTop="12dp"
+        android:textSize="20dp"
+        android:text="Jumlah Kamar" />
+
+    <TextView
+        android:id="@+id/date_CheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/daftar_hotel"
+        android:layout_marginLeft="64dp"
+        android:textColor="@color/white"
+
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/check_in"
+        android:textSize="20dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/date_CheckOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_CheckIn"
+        android:textColor="@color/white"
+
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/check_out"
+        android:text="TextView"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/Jumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_CheckOut"
+        android:textColor="@color/white"
+
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/jumlah_kamar"
+        android:text="TextView"
+        android:textSize="20dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listHotel"
+        android:layout_width="match_parent"
+        android:layout_height="518dp"
+        android:layout_below="@id/jumlah_kamar"
+        android:layout_marginTop="7dp" />
+
+</RelativeLayout>
