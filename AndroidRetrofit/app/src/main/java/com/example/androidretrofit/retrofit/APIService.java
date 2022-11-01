@@ -10,7 +10,7 @@ public class APIService {
     public static APIEndpoint endpoint(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         return retrofit.create(APIEndpoint.class);
