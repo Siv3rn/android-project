@@ -1,7 +1,8 @@
-<menu xmlns:android="https://schemas.android.com/apk/res/android"
-    xmlns:app="https://schemas.android.com/apk/res-auto"
-    xmlns:tools="https://schemas.android.com/tools"
-    tools:context="com.example.sqlitesample.MainActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sqlite.CountryListActivity" >
 
     <item
         android:id="@+id/add_record"
