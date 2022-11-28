@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "760342801648",
+    "firebase_url": "https://fir-d1703-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-d1703",
+    "storage_bucket": "fir-d1703.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760342801648:android:ba4177a6703fde6f716635",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760342801648-l3bokm3pcbk21o4i37mdba7qpfsa0pv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuVdLWZIh6vMryyliUMd8emnnxDdo0xSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760342801648-l3bokm3pcbk21o4i37mdba7qpfsa0pv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

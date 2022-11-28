@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private SimpleCursorAdapter adapter;
 
     final String[] from = new String[] { DatabaseHelper._ID,
-            DatabaseHelper.SUBJECT, DatabaseHelper.DESC };
+            DatabaseHelper.NAME, DatabaseHelper.GENDER,DatabaseHelper.PRODI,DatabaseHelper.ADDRESS };
 
-    final int[] to = new int[] { R.id.id, R.id.title, R.id.desc };
+    final int[] to = new int[] { R.id.id, R.id.name,R.id.jk,R.id.prodi,R.id.adress};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,19 +42,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView idTextView = (TextView) view.findViewById(R.id.id);
-                TextView titleTextView = (TextView) view.findViewById(R.id.title);
-                TextView descTextView = (TextView) view.findViewById(R.id.desc);
+                TextView nameTextView = (TextView) view.findViewById(R.id.name);
+                TextView genderTextView = (TextView) view.findViewById(R.id.gender);
+                TextView prodiTextView = (TextView) view.findViewById(R.id.prod);
+                TextView adressTextView = (TextView) view.findViewById(R.id.addr);
 
                 String id = idTextView.getText().toString();
-                String title = titleTextView.getText().toString();
-                String desc = descTextView.getText().toString();
+                String name = nameTextView.getText().toString();
+                String gender = genderTextView.getText().toString();
+                String prodi = prodiTextView.getText().toString();
+                String adress = adressTextView.getText().toString();
 
-                Intent modify_intent = new Intent(getApplicationContext(), ModifyCountryActivity.class);
-                modify_intent.putExtra("title", title);
-                modify_intent.putExtra("desc", desc);
-                modify_intent.putExtra("id", id);
+                Intent intent = new Intent(getApplicationContext(), MainDetail.class);
+                intent.putExtra("tname", name);
+                intent.putExtra("tgen", gender);
+                intent.putExtra("tprod", prodi);
+                intent.putExtra("tadd", adress);
+                intent.putExtra("id", id);
 
-                startActivity(modify_intent);
+                startActivity(intent);
 
             }
         });

@@ -25,14 +25,17 @@ public class DBManager {
     public void close(){
         dbHelper.close();
     }
-    public void insert(String name, String desc){
+    public void insert(String name, String gender, String prodi, String address){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.SUBJECT,name);
-        contentValues.put(DatabaseHelper.DESC,desc);
+        contentValues.put(DatabaseHelper.NAME,name);
+        contentValues.put(DatabaseHelper.GENDER,gender);
+        contentValues.put(DatabaseHelper.PRODI,prodi);
+        contentValues.put(DatabaseHelper.ADDRESS,address);
+
         database.insert(DatabaseHelper.TABLE_NAME,null,contentValues);
     }
     public Cursor fetch(){
-        String[] columns = new String[]{DatabaseHelper._ID,DatabaseHelper.SUBJECT,DatabaseHelper.DESC};
+        String[] columns = new String[]{DatabaseHelper._ID,DatabaseHelper.NAME,DatabaseHelper.GENDER,DatabaseHelper.PRODI,DatabaseHelper.ADDRESS};
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME,columns,null,null,null,null,null);
         if(cursor != null){
             cursor.moveToFirst();
@@ -40,10 +43,12 @@ public class DBManager {
         return cursor;
     }
 
-    public int update(long _id, String name,String desc){
+    public int update(long _id, String name, String gender, String prodi, String address){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.SUBJECT,name);
-        contentValues.put(DatabaseHelper.DESC,desc);
+        contentValues.put(DatabaseHelper.NAME,name);
+        contentValues.put(DatabaseHelper.GENDER,gender);
+        contentValues.put(DatabaseHelper.PRODI,prodi);
+        contentValues.put(DatabaseHelper.ADDRESS,address);
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
 

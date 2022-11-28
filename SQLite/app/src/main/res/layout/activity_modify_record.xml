@@ -27,6 +27,27 @@
         android:minLines="5" >
     </EditText>
 
+    <EditText
+        android:id="@+id/prodi_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="masukan Prodi"
+        android:layout_below="@id/gender_edittext"
+
+        android:inputType="textMultiLine"
+        android:minLines="5" >
+    </EditText>
+    <EditText
+        android:id="@+id/tempat_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="masukan Tempat Tinggal"
+        android:layout_below="@id/prodi_edittext"
+        android:inputType="textMultiLine"
+        android:minLines="5" >
+    </EditText>
 
     <LinearLayout
         android:layout_width="fill_parent"

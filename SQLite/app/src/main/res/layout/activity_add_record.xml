@@ -8,31 +8,51 @@
     android:padding="20dp"
     tools:context=".AddCountryActivity">
     <EditText
-        android:id="@+id/subject_edittext"
+        android:id="@+id/name_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="masukan title" >
+        android:hint="masukan Nama" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/description_edittext"
+        android:id="@+id/gender_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="masukan deskripsi"
+        android:hint="masukan Jenis Kelamin"
         android:inputType="textMultiLine"
         android:minLines="5" >
     </EditText>
+    <EditText
+        android:id="@+id/prodi_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="masukan Prodi"
+        android:layout_below="@id/gender_edittext"
 
+        android:inputType="textMultiLine"
+        android:minLines="5" >
+    </EditText>
+    <EditText
+        android:id="@+id/tempat_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="masukan Tempat Tinggal"
+        android:layout_below="@id/prodi_edittext"
+        android:inputType="textMultiLine"
+        android:minLines="5" >
+    </EditText>
     <Button
         android:id="@+id/add_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_below="@id/description_edittext"
+        android:layout_below="@id/tempat_edittext"
         android:text="tambah" />
 
 </RelativeLayout>

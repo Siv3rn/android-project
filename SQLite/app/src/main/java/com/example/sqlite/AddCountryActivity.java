@@ -10,8 +10,10 @@ import android.widget.EditText;
 
 public class AddCountryActivity extends AppCompatActivity implements OnClickListener {
     private Button addTodoBtn;
-    private EditText subjectEditText;
-    private EditText descEditText;
+    private EditText nameEditText;
+    private EditText genderEditText;
+    private EditText prodiEditText;
+    private EditText addressEditText;
 
     private DBManager dbManager;
 
@@ -23,8 +25,10 @@ public class AddCountryActivity extends AppCompatActivity implements OnClickList
         setContentView(R.layout.activity_add_record);
 
 
-        subjectEditText = (EditText) findViewById(R.id.subject_edittext);
-        descEditText = (EditText) findViewById(R.id.description_edittext);
+        nameEditText = (EditText) findViewById(R.id.name_edittext);
+        genderEditText = (EditText) findViewById(R.id.gender_edittext);
+        prodiEditText = (EditText) findViewById(R.id.prodi_edittext);
+        addressEditText = (EditText) findViewById(R.id.tempat_edittext);
 
         addTodoBtn = (Button) findViewById(R.id.add_record);
 
@@ -39,12 +43,14 @@ public class AddCountryActivity extends AppCompatActivity implements OnClickList
         switch (view.getId()) {
             case R.id.add_record:
 
-                final String name = subjectEditText.getText().toString();
-                final String desc = descEditText.getText().toString();
+                final String name = nameEditText.getText().toString();
+                final String gender = genderEditText.getText().toString();
+                final String prodi = prodiEditText.getText().toString();
+                final String address = addressEditText.getText().toString();
 
-                dbManager.insert(name, desc);
+                dbManager.insert(name, gender, prodi, address );
 
-                Intent main = new Intent(AddCountryActivity.this, CountryListActivity.class)
+                Intent main = new Intent(AddCountryActivity.this, MainActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 startActivity(main);
