@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyle"
         android:layout_marginTop="10dp"
+        tools:listitem="@layout/layout_item"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
