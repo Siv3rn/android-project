@@ -47,8 +47,8 @@ public class AdapterMahasiswa extends RecyclerView.Adapter<AdapterMahasiswa.myVi
     public void onBindViewHolder(@NonNull AdapterMahasiswa.myViewHolder holder, int position) {
             final ModelMahasiswa data = mList.get(position);
             holder.tv_nama.setText("nama :" + data.getNama());
-            holder.tv_matkul.setText("nama :" + data.getMatkul());
-            holder.tv_alamat.setText("nama :" + data.getAlamat());
+            holder.tv_matkul.setText("matkul :" + data.getMatkul());
+            holder.tv_alamat.setText("alamat :" + data.getAlamat());
             holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
