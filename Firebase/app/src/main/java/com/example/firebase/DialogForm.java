@@ -71,7 +71,7 @@ public class DialogForm extends DialogFragment {
             }
         });
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     @Override
