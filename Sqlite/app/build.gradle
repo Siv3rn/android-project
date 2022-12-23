@@ -3,7 +3,6 @@ plugins {
 }
 
 android {
-    namespace 'com.example.sqlite'
     compileSdk 32
 
     defaultConfig {
