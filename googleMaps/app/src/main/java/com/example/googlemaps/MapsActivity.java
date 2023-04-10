@@ -102,13 +102,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         switch (item.getItemId()){
             case R.id.normam_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
-
                 return true;
             case R.id.sattelite_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                return true;
             case R.id.terrain_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
             case R.id.hybrid_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 return true;
@@ -179,6 +179,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void changeBackgroundColor(float currentValue) {
         if (currentValue >= 20000) {
             mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
+        }
+        else{
+            mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.default_style));
         }
     }
     @Override
