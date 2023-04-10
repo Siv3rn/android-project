@@ -9,12 +9,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,12 +28,9 @@ import com.google.android.gms.maps.model.PointOfInterest;
 
 import java.util.Locale;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, SensorEventListener {
-    private SensorManager mSensorManager;
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Sensor mSensorLight;
-
     private ActivityMapsBinding binding;
 
     @Override
@@ -52,10 +44,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
-
 
     }
 
@@ -80,14 +68,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setMapLongclick(mMap);
 
         setPoiClick(mMap);
-        if (mSensorLight != null){
-            mSensorManager.registerListener(this, mSensorLight, SensorManager.SENSOR_DELAY_NORMAL);
-        }
-
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,14 +82,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.normam_map:
-                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
-
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 return true;
             case R.id.sattelite_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+
             case R.id.terrain_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
             case R.id.hybrid_map:
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 return true;
@@ -122,7 +104,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onMapLongClick(@NonNull LatLng latLng) {
                 String text = String.format(Locale.getDefault(),
-                        "lat: %1$.2f,long: %2$.2f",
+                        "lat: %2$.5f,long: %2$.5f",
                         latLng.latitude,
                         latLng.longitude);
                 map.addMarker(new MarkerOptions().position(latLng).title("Dropped pin").snippet(text));
@@ -163,26 +145,4 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        int sensorType = event.sensor.getType();
-        float currentValue = event.values[0];
-
-        switch (sensorType) {
-            case Sensor.TYPE_LIGHT:
-                changeBackgroundColor(currentValue);
-                break;
-
-            default:
-        }
-    }
-    private void changeBackgroundColor(float currentValue) {
-        if (currentValue >= 20000) {
-            mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
-        }
-    }
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
 }
