@@ -9,8 +9,11 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,6 +35,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    private String poiname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +72,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,10));
         setMapLongclick(mMap);
+        sharedpreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setPoiClick(mMap);
+
     }
 
     @Override
@@ -117,6 +125,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onPoiClick(@NonNull PointOfInterest pointOfInterest) {
                 Marker poiMarker = mMap.addMarker(new MarkerOptions().position(pointOfInterest.latLng).title(pointOfInterest.name));
                 poiMarker.showInfoWindow();
+
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                String name = pointOfInterest.name;
+                editor.putString(getString(R.string.poiname),name);
+                editor.commit();
+
             }
         });
     }

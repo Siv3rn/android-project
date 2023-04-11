@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">google Maps</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="appwidget_text">Map Point of Interest</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Map Widget</string>
+    <string name="poiname">poiName</string>
 </resources>

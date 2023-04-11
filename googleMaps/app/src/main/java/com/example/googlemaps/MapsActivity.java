@@ -135,9 +135,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onPoiClick(@NonNull PointOfInterest pointOfInterest) {
                 Marker poiMarker = mMap.addMarker(new MarkerOptions().position(pointOfInterest.latLng).title(pointOfInterest.name));
                 poiMarker.showInfoWindow();
+
             }
         });
     }
+
+
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
