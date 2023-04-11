@@ -12,6 +12,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -31,13 +35,15 @@ import com.google.android.gms.maps.model.PointOfInterest;
 
 import java.util.Locale;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, SensorEventListener {
+    private SensorManager mSensorManager;
 
     private GoogleMap mMap;
+    private Sensor mSensorLight;
+
     private ActivityMapsBinding binding;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs" ;
-    private String poiname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
     }
 
@@ -76,6 +84,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         setPoiClick(mMap);
 
+
+        if (mSensorLight != null){
+            mSensorManager.registerListener(this, mSensorLight, SensorManager.SENSOR_DELAY_NORMAL);
+        }
+
+
     }
 
     @Override
@@ -90,7 +104,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.normam_map:
-                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 return true;
             case R.id.sattelite_map:
@@ -159,4 +172,30 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        int sensorType = event.sensor.getType();
+        float currentValue = event.values[0];
+
+        switch (sensorType) {
+            case Sensor.TYPE_LIGHT:
+                changeBackgroundColor(currentValue);
+                break;
+            default:
+        }
+    }
+    private void changeBackgroundColor(float currentValue) {
+        if (currentValue >= 20000) {
+            mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
+        }
+        else{
+            mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.default_style));
+        }
+    }
+
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
 }
